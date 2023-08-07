@@ -1,0 +1,49 @@
+{
+  "name": "dozen-software/listcraft",
+  "description": "Create lists from Eloquent models. https://github.com/Dozen-Software/listcraft",
+  "keywords": [
+    "laravel",
+    "model",
+    "position",
+    "acts_as_list",
+    "listify",
+    "rails",
+    "list",
+    "eloquent",
+    "order"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Travis Vignon",
+      "email": "travis@lookitsatravis.com",
+      "homepage": "http://lookitsatravis.com"
+    },
+    {
+      "name": "Clay Wittwer",
+      "email": "clay.wittwer@dozensoft.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.0.2",
+    "illuminate/database": "~5.5|~6.0|~7.0|~8.0|~9.0",
+    "illuminate/support": "~5.5|~6.0|~7.0|~8.0|~9.0",
+    "illuminate/console": "~5.5|~6.0|~7.0|~8.0|~9.0",
+    "illuminate/events": "~5.5|~6.0|~7.0|~8.0|~9.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~9.5",
+    "php-coveralls/php-coveralls": "^2.5"
+  },
+  "autoload": {
+    "psr-0": {
+      "Dozensoftware\\Listcraft\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/models"
+    ]
+  },
+  "minimum-stability": "stable"
+}
