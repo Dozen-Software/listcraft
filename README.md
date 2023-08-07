@@ -32,7 +32,7 @@ Install the package using Composer. Edit your project's `composer.json` file to 
 ```js
   "require": {
     "laravel/framework": "~5.0",
-    "dozen-software/listcraft": "~1.2"
+    "dozen-software/listcraft": "^1.0"
   }
 ```
 
