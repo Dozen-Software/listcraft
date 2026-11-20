@@ -138,8 +138,8 @@ trait Listcraft
         $reflector = new \ReflectionClass($theScope);
         if($reflector->getName() == 'Illuminate\Database\Eloquent\Relations\BelongsTo')
         {
-            $originalVal = $this->getOriginal()[$theScope->getForeignKey()];
-            $currentVal = $this->getAttribute($theScope->getForeignKey());
+            $originalVal = $this->getOriginal()[$theScope->getForeignKeyName()];
+            $currentVal = $this->getAttribute($theScope->getForeignKeyName());
 
             if($originalVal != $currentVal) return TRUE;
         }
@@ -185,7 +185,7 @@ trait Listcraft
                     $reflector = new \ReflectionClass($theScope);
                     if($reflector->getName() == 'Illuminate\Database\Eloquent\Relations\BelongsTo')
                     {
-                        $relationshipId = $this->getAttribute($theScope->getForeignKey());
+                        $relationshipId = $this->getAttribute($theScope->getForeignKeyName());
 
                         if($relationshipId === NULL)
                         {
@@ -193,7 +193,7 @@ trait Listcraft
                         }
                         else
                         {
-                            $theScope = $theScope->getForeignKey() . ' = ' . $this->getAttribute($theScope->getForeignKey());
+                            $theScope = $theScope->getForeignKeyName() . ' = ' . $this->getAttribute($theScope->getForeignKeyName());
                         }
                     }
                     else if ($reflector->getName() == 'Illuminate\Database\Query\Builder')
@@ -365,7 +365,6 @@ trait Listcraft
 
         $this->getConnection()->transaction(function()
         {
-            $this->lowerItem()->decrement($this->positionColumn());
             $this->increment($this->positionColumn());
         });
     }
@@ -380,7 +379,6 @@ trait Listcraft
 
         $this->getConnection()->transaction(function()
         {
-            $this->higherItem()->increment($this->positionColumn());
             $this->decrement($this->positionColumn());
         });
     }
